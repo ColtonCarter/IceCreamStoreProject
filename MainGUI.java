@@ -1,5 +1,7 @@
 package icecreamshop;
 
+import java.util.Hashtable;
+
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -20,7 +22,32 @@ public class MainGUI extends Application
 	
 	public static void main(String[] args) 
 	{
+		Customer abby = new Customer("Abby","Art",0,"Acorn");
+		Customer bob = new Customer("Bob","Bailman",1,"Bubblegum");
+		Customer cal = new Customer("Cal","Cantrop",2,"Caramel");
+		Customer derek = new Customer("Derek","Dittmer",3,"Dracula");
+		Customer eric = new Customer("Eric","Ehrlich",4,"Eclaire");
+		Customer fred = new Customer("Fred","Figaro",5,"Fresh Mint");
+		Customer george = new Customer("George","Georgeson",6,"Green Tea");
+		Customer herbert = new Customer("Herbert","Harl",7,"Honey");
+		Customer ingrid = new Customer("Ingrid","Igne",8,"Ice");
+		
+		Customer [][] customer = {{abby, bob, cal},{derek, eric, fred},{george,herbert,ingrid}};
+		
+		for(int i = 0; i < customer.length; i++)
+		{
+			for(int j = 0; j< customer[0].length; j++)
+			{
+				
+				System.out.println("Customer: " + customer[i][j].getFirstName() );
+			}
+		}
+		
 		launch(args);
+		
+		
+		
+		
 	}
 
 	public void start(Stage primaryStage) 
