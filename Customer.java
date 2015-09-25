@@ -1,5 +1,5 @@
 package icecreamshop;
-
+//Test of the github functions, delete this 
 public class Customer {
 	
     Customer(String firstName, String lastName, int customerID, String faveFlavor) {
