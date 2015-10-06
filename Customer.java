@@ -1,5 +1,5 @@
 package icecreamshop;
-//Test of the github functions, delete this 
+
 public class Customer {
 	
     Customer(String firstName, String lastName, int customerID, String faveFlavor) {
@@ -8,6 +8,12 @@ public class Customer {
 		this.lastName = lastName;
 		this.customerID = customerID;
 		this.faveFlavor = faveFlavor;
+	}
+    Customer() {
+    	this.firstName = "defaultFirst";
+		this.lastName = "defaultLast";
+		this.customerID = -1;
+		this.faveFlavor = "defaultFlavor";
 	}
 	
 	String firstName;
