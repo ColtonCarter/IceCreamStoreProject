@@ -42,7 +42,37 @@ public class POS
 		this.currentOrders = currentOrders;
 	}
 
+	public void showNextOrder(PriorityQueue currentCustomers) {
+	        while(true) {
+	            Object currentOrder = currentCustomers.peek();
+	            if(currentOrder == null) {
+	            	System.out.println("There are no current orders.");
+	                break;
+	            }
+	            System.out.print("Next order: ");
+	            System.out.print(currentOrder);
+	        }
+	        
+	}
+	
+	public static void showNumOrders(PriorityQueue currentCustomers) {
+		 System.out.print("Number of current orders: ");
+	            System.out.print(currentCustomers.size());
+	        }
+	
+	public static void showAllOrders(PriorityQueue currentCustomers) {
+		 System.out.print("Number of current orders: ");
+	            System.out.print(currentCustomers.size());
+	        }
 			
+	public static void pollOrders(PriorityQueue currentCustomers) {
+        while(true){
+            Order cust = (Order) currentCustomers.poll();
+            if(cust == null) break;
+            System.out.println("Name: "+ cust.getCustomer());
+            System.out.println("Order: "+ cust.getCones());
+        }
+    }
 };
 	
 	
