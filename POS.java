@@ -59,11 +59,6 @@ public class POS
 		 System.out.print("Number of current orders: ");
 	            System.out.print(currentCustomers.size());
 	        }
-	
-	public static void showAllOrders(PriorityQueue currentCustomers) {
-		 System.out.print("Number of current orders: ");
-	            System.out.print(currentCustomers.size());
-	        }
 			
 	public static void pollOrders(PriorityQueue currentCustomers) {
         while(true){
