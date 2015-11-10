@@ -2,24 +2,22 @@ package icecreamshop;
 
 public class Customer {
 	
-    Customer(String firstName, String lastName, int customerID, String faveFlavor) {
+    Customer(String firstName, String lastName, String faveFlavor) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.customerID = customerID;
 		this.faveFlavor = faveFlavor;
 	}
     Customer() {
     	this.firstName = "defaultFirst";
 		this.lastName = "defaultLast";
-		this.customerID = -1;
 		this.faveFlavor = "defaultFlavor";
 	}
 	
 	String firstName;
 	String lastName;
-	int customerID;
 	String faveFlavor;
+	
 	public String getFirstName() {
 		return firstName;
 	}
@@ -31,12 +29,6 @@ public class Customer {
 	}
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
-	}
-	public int getCustomerID() {
-		return customerID;
-	}
-	public void setCustomerID(int customerID) {
-		this.customerID = customerID;
 	}
 	public String getFaveFlavor() {
 		return faveFlavor;

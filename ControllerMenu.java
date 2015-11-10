@@ -1,4 +1,4 @@
-package application;
+package icecreamshop;
 
 import java.net.URL;
 import java.util.ResourceBundle;
