@@ -1,4 +1,4 @@
-package application;
+package icecreamshop;
 
 import java.util.PriorityQueue;
 import java.util.Stack;
