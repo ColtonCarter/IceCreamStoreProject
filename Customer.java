@@ -1,4 +1,4 @@
-package icecreamshop;
+package application;
 
 public class Customer {
 	

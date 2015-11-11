@@ -36,8 +36,8 @@ public class ControllerMenu implements Initializable {
             public void handle(ActionEvent event) 
             {
             	
-            	LoadScene("Log in", new Stage(), "LogOn.fxml", 640, 480);
-            	          
+            	//LoadScene("Log in", new Stage(), "LogOn.fxml", 640, 480);
+            	 Main.scenes.ShowLogOnStage();         
             }
         });
         }

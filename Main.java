@@ -1,5 +1,7 @@
 package icecreamshop;
 	
+import java.io.IOException;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
@@ -12,17 +14,17 @@ import javafx.scene.Scene;
 public class Main extends Application 
 {
 	
-	
+	public static SceneContainer scenes;
+   
 
 	
 	
 	@Override
-	public void start(Stage primaryStage)
+	public void start(Stage primaryStage) throws IOException
 	{
-		
-		
-		
-		
+		scenes = new SceneContainer();
+
+
 		LoadScene("Queue", primaryStage, "OrderQueue.fxml", 640, 480);
 	
 		
@@ -57,6 +59,8 @@ public class Main extends Application
 	
 
 	}
+	
+	
 }
 
 

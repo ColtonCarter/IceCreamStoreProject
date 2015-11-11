@@ -39,8 +39,8 @@ implements Initializable {
             public void handle(ActionEvent event) 
             {
             	
-            	LoadScene("Menu", new Stage(), "Menu.fxml", 640, 480);
-            	          
+            	//LoadScene("Menu", new Stage(), "Menu.fxml", 640, 480);
+            	Main.scenes.ShowMenu();          
             }
         });
     	
@@ -51,7 +51,8 @@ implements Initializable {
             public void handle(ActionEvent event) 
             {
             	
-            	LoadScene("Customer Info", new Stage(), "CustomerInfo.fxml", 640, 480);
+            	Main.scenes.ShowCustomerInfo();
+            	//LoadScene("Customer Info", new Stage(), "CustomerInfo.fxml", 640, 480);
             	          
             }
         });

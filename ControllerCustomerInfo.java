@@ -36,7 +36,8 @@ public class ControllerCustomerInfo implements Initializable {
             public void handle(ActionEvent event) 
             {
             	
-            	LoadScene("Select", new Stage(), "Menu.fxml", 640, 480);
+            	Main.scenes.ShowMenu();
+            	//LoadScene("Select", new Stage(), "Menu.fxml", 640, 480);
             	          
             }
         });

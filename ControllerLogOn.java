@@ -36,8 +36,8 @@ public class ControllerLogOn implements Initializable {
             public void handle(ActionEvent event) 
             {
             	
-            	LoadScene("Select", new Stage(), "SelectionScreen.fxml", 640, 480);
-            	          
+            	//LoadScene("Select", new Stage(), "SelectionScreen.fxml", 640, 480);
+            	Main.scenes.ShowSelectionStage();
             }
         });
         }
