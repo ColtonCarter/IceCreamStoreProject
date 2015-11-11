@@ -52,6 +52,7 @@ public class DBConnect {
 				}
 				return customerList;
 			}
+		}
 			
 			public List<Order> getOrders() throws SQLException{
 				
@@ -61,20 +62,20 @@ public class DBConnect {
 			
 				){
 			
-					List<Customer> customerList = new ArrayList<>();
+					List<Order> orderList = new ArrayList<>();
 					while (rs.next()){
 			
-						String orderID = rs.getString("order_num");
+						int orderID = rs.getInt("order_num");
 						String type = rs.getString("cone_type");
-						String custID = rs.getString("customerID");
+						int custID = rs.getInt("customerID");
 						String flavor = rs.getString("cone_flavor");
 						String scoops = rs.getString("numScoops");
 						String status = rs.getString("status");
 			
-						Customer customer = new Customer(fName, lName, faveFlavor);
-						customerList.add(customer);
+						Order order = new Order(orderID, type, custID, flavor, scoops, status);
+						orderList.add(order);
 					}
-					return customerList;
+					return orderList;
 				}
 				
 		}

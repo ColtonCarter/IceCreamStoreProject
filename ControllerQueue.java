@@ -3,6 +3,8 @@ package icecreamshop;
 import java.util.ResourceBundle;
 
 import java.net.URL;
+import java.sql.SQLException;
+
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -15,9 +17,6 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-import tableView.AU_DBaseConnect;
-import tableView.AU_emp;
-
 
 public class ControllerQueue implements Initializable {
 
@@ -53,7 +52,12 @@ public class ControllerQueue implements Initializable {
     	
     	
     	//create database connection
-    	dbaseConnection = new DBConnect("jdbc:mysql://localhost:3306/icecream", "root", "csc4500");
+    	try {
+			dbaseConnection = new DBConnect("jdbc:mysql://localhost:3306/icecream", "root", "csc4500");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     	
     	//create columns to display database information by key in database from table
     			col_orderNum.setMinWidth(300);
@@ -76,7 +80,12 @@ public class ControllerQueue implements Initializable {
     		
     			tblView_orders.getColumns().addAll(col_orderNum, col_name, col_type, col_flavor, col_numScoops, col_status);
     		
-    			tblView_orders.getItems().addAll(dbaseConnection.getOrders());
+    			try {
+					tblView_orders.getItems().addAll(dbaseConnection.getOrders());
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 
     	
 
