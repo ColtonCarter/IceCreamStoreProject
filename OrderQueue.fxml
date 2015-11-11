@@ -6,14 +6,23 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ControllerQueue">
+<AnchorPane prefHeight="706.0" prefWidth="1364.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ControllerQueue">
    <children>
-      <TextArea layoutX="50.0" layoutY="53.0" prefHeight="357.0" prefWidth="538.0" />
-      <Label layoutX="284.0" layoutY="14.0" text="Orders">
+      <Label fx:id="lblOrders" layoutX="596.0" layoutY="36.0" prefHeight="99.0" prefWidth="174.0" text="Orders">
          <font>
-            <Font size="24.0" />
+            <Font name="Arial Narrow" size="69.0" />
          </font>
       </Label>
-      <Button fx:id="btn_LogOn" layoutX="6.0" layoutY="441.0" mnemonicParsing="false" text="Log On" />
+      <Button fx:id="btn_Complete" layoutX="535.0" layoutY="604.0" mnemonicParsing="false" text="Complete an Order" />
+      <TableView fx:id="tblView_orders" layoutX="83.0" layoutY="160.0" prefHeight="409.0" prefWidth="1199.0">
+        <columns>
+          <TableColumn fx:id="col_orderNum" prefWidth="174.0" text="Order #" />
+          <TableColumn fx:id="col_name" minWidth="0.0" prefWidth="197.0" text="Customer #" />
+            <TableColumn fx:id="col_flavor" minWidth="0.0" prefWidth="196.0" text="Flavor" />
+            <TableColumn fx:id="col_numScoops" minWidth="0.0" prefWidth="228.0" text="# of Scoops" />
+            <TableColumn fx:id="col_type" minWidth="0.0" prefWidth="222.0" text="Cone Type" />
+            <TableColumn fx:id="col_status" minWidth="0.0" prefWidth="185.0" text="Status" />
+        </columns>
+      </TableView>
    </children>
 </AnchorPane>

@@ -52,6 +52,31 @@ public class DBConnect {
 				}
 				return customerList;
 			}
+			
+			public List<Order> getOrders() throws SQLException{
+				
+				try(
+					Statement stmt = conn.createStatement();
+					ResultSet rs = stmt.executeQuery("select * from orders");
+			
+				){
+			
+					List<Customer> customerList = new ArrayList<>();
+					while (rs.next()){
+			
+						String orderID = rs.getString("order_num");
+						String type = rs.getString("cone_type");
+						String custID = rs.getString("customerID");
+						String flavor = rs.getString("cone_flavor");
+						String scoops = rs.getString("numScoops");
+						String status = rs.getString("status");
+			
+						Customer customer = new Customer(fName, lName, faveFlavor);
+						customerList.add(customer);
+					}
+					return customerList;
+				}
+				
 		}
 }
 			
