@@ -1,4 +1,4 @@
-package application;
+package icecreamshop;
 
 import java.io.IOException;
 
