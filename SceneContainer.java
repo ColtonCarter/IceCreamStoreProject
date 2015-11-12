@@ -1,4 +1,4 @@
-package icecreamshop;
+package application;
 
 import java.io.IOException;
 
@@ -49,6 +49,15 @@ public class SceneContainer
         QueueScene = new Scene(QueueRoot, 640, 480);
         
         
+    }
+    
+    public void showScene(Scene scene, String title) //Brittany, try calling Main.scenes.showScene(scene, title) in your code, 
+    												//you will have to remove all of your primaryStage calls and use this function
+    												//instead of primaryStage.show();
+    {
+    	stage.setScene(scene);
+    	stage.setTitle(title);
+    	stage.show();
     }
     
     public void ShowLogOnStage()
