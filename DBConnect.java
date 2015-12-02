@@ -14,7 +14,7 @@ public class DBConnect {
 		
 		public DBConnect(String dbURL, String user, String password) throws SQLException{
 		
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/icecream", "root", "csc4500");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/icecream", "root", "");
 		
 		}
 		

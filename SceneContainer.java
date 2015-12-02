@@ -3,7 +3,7 @@ package icecreamshop;
 import java.io.IOException;
 
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
+
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -29,23 +29,48 @@ public class SceneContainer
     Scene QueueScene;
     
 
-    SceneContainer() throws IOException
+    SceneContainer() 
     {
     	stage = new Stage();
     	
-    	logOnRoot = FXMLLoader.load(getClass().getResource("LogOn.fxml"));
+    	try {
+			logOnRoot = FXMLLoader.load(getClass().getResource("LogOn.fxml"));
+		} catch (IOException e) {
+			System.out.println("LogOnNotLoaded");
+			e.printStackTrace();
+		}
         logOnScene = new Scene(logOnRoot, 640, 480);
         
-        SelectionRoot = FXMLLoader.load(getClass().getResource("SelectionScreen.fxml"));
+        try {
+			SelectionRoot = FXMLLoader.load(getClass().getResource("SelectionScreen.fxml"));
+		} catch (IOException e) {
+			System.out.println("SelectionScreenNotLoaded");
+			e.printStackTrace();
+		}
         SelectionScene = new Scene(SelectionRoot, 640, 480);
         
-        MenuRoot = FXMLLoader.load(getClass().getResource("Menu.fxml"));
+        try {
+			MenuRoot = FXMLLoader.load(getClass().getResource("Menu.fxml"));
+		} catch (IOException e) {
+			System.out.println("MenuNotLoaded");
+			e.printStackTrace();
+		}
         MenuScene = new Scene(MenuRoot, 640, 480);
         
-        CustomerInfoRoot = FXMLLoader.load(getClass().getResource("CustomerInfo.fxml"));
+        try {
+			CustomerInfoRoot = FXMLLoader.load(getClass().getResource("CustomerInfo.fxml"));
+		} catch (IOException e) {
+			System.out.println("CustomerInfoNotLoaded");
+			e.printStackTrace();
+		}
         CustomerInfoScene = new Scene(CustomerInfoRoot, 640, 480);
         
-        QueueRoot = FXMLLoader.load(getClass().getResource("OrderQueue.fxml"));
+        try {
+			QueueRoot = FXMLLoader.load(getClass().getResource("OrderQueue.fxml"));
+		} catch (IOException e) {
+			System.out.println("QueueNotLoaded");
+			e.printStackTrace();
+		}
         QueueScene = new Scene(QueueRoot, 640, 480);
         
         

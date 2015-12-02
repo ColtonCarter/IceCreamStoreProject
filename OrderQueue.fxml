@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="706.0" prefWidth="1364.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ControllerQueue">
+<AnchorPane prefHeight="706.0" prefWidth="1364.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="icecreamshop.ControllerQueue">
    <children>
       <Label fx:id="lblOrders" layoutX="596.0" layoutY="36.0" prefHeight="99.0" prefWidth="174.0" text="Orders">
          <font>

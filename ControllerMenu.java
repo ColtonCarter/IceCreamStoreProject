@@ -17,10 +17,7 @@ public class ControllerMenu implements Initializable {
 
 	@FXML
 	public Button btn_Done; 
- 
-	
-	
-    
+     
 
 
     @Override // This method is called by the FXMLLoader when initialization is complete
@@ -36,25 +33,11 @@ public class ControllerMenu implements Initializable {
             public void handle(ActionEvent event) 
             {
             	
-            	//LoadScene("Log in", new Stage(), "LogOn.fxml", 640, 480);
+            	
             	 Main.scenes.ShowLogOnStage();         
             }
         });
         }
     
-    public void LoadScene(String newTitle, Stage primaryStage, String fxmlName, int width, int height)
-	{
-		try {
-			
-			Parent newRoot = FXMLLoader.load(getClass().getResource(fxmlName));
-	        Scene scene = new Scene(newRoot, width, height);
-	        
-	        primaryStage.setTitle(newTitle);
-	        primaryStage.setScene(scene);
-
-	        primaryStage.show();
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
-	}
+    
 }

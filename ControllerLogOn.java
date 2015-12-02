@@ -17,17 +17,13 @@ public class ControllerLogOn implements Initializable {
 
 	@FXML
 	public Button btn_Submit; 
- 
-	
-	
-    
+   
 
 
     @Override // This method is called by the FXMLLoader when initialization is complete
     public void initialize(URL fxmlFileLocation, ResourceBundle resources) 
     {
-    	
-
+   
         
     	btn_Submit.setOnAction(new EventHandler<ActionEvent>() 
         {
@@ -36,27 +32,11 @@ public class ControllerLogOn implements Initializable {
             public void handle(ActionEvent event) 
             {
             	
-            	//LoadScene("Select", new Stage(), "SelectionScreen.fxml", 640, 480);
             	Main.scenes.ShowSelectionStage();
             }
         });
         }
     
-    public void LoadScene(String newTitle, Stage primaryStage, String fxmlName, int width, int height)
-	{
-		try {
-			
-			Parent newRoot = FXMLLoader.load(getClass().getResource(fxmlName));
-	        Scene scene = new Scene(newRoot, width, height);
-	        
-	        primaryStage.setTitle(newTitle);
-	        primaryStage.setScene(scene);
-
-	        primaryStage.show();
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
-	}
-
+  
 	
 }

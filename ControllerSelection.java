@@ -39,7 +39,7 @@ implements Initializable {
             public void handle(ActionEvent event) 
             {
             	
-            	//LoadScene("Menu", new Stage(), "Menu.fxml", 640, 480);
+            	
             	Main.scenes.ShowMenu();          
             }
         });
@@ -52,27 +52,12 @@ implements Initializable {
             {
             	
             	Main.scenes.ShowCustomerInfo();
-            	//LoadScene("Customer Info", new Stage(), "CustomerInfo.fxml", 640, 480);
+            	
             	          
             }
         });
         }
-    
-    public void LoadScene(String newTitle, Stage primaryStage, String fxmlName, int width, int height)
-	{
-		try {
-			
-			Parent newRoot = FXMLLoader.load(getClass().getResource(fxmlName));
-	        Scene scene = new Scene(newRoot, width, height);
-	        
-	        primaryStage.setTitle(newTitle);
-	        primaryStage.setScene(scene);
-
-	        primaryStage.show();
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
-	}
+   
 
 	
 

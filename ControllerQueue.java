@@ -5,8 +5,7 @@ import java.util.ResourceBundle;
 import java.net.URL;
 import java.sql.SQLException;
 
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -52,15 +51,16 @@ public class ControllerQueue implements Initializable {
     	
     	
     	//create database connection
-    	try {
-			dbaseConnection = new DBConnect("jdbc:mysql://localhost:3306/icecream", "root", "csc4500");
+    	 try {
+			dbaseConnection = new DBConnect("jdbc:mysql://localhost:3306/icecream", "root", "");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
     	
+    	
     	//create columns to display database information by key in database from table
-    			col_orderNum.setMinWidth(300);
+    		/*	col_orderNum.setMinWidth(300);
     			col_orderNum.setCellValueFactory(new PropertyValueFactory<>("order_num"));
     			
     			col_name.setMinWidth(300);
@@ -78,7 +78,9 @@ public class ControllerQueue implements Initializable {
     			col_status.setMinWidth(300);
     			col_status.setCellValueFactory(new PropertyValueFactory<>("status"));
     		
-    			tblView_orders.getColumns().addAll(col_orderNum, col_name, col_type, col_flavor, col_numScoops, col_status);
+    			
+    			  tblView_orders.getColumns().addAll(col_orderNum, col_name, col_type, col_flavor, col_numScoops, col_status);
+    			*/
     		
     			try {
 					tblView_orders.getItems().addAll(dbaseConnection.getOrders());
@@ -103,20 +105,6 @@ public class ControllerQueue implements Initializable {
      //   });
         }
     
-    public void LoadScene(String newTitle, Stage primaryStage, String fxmlName, int width, int height)
-	{
-		try {
-			
-			Parent newRoot = FXMLLoader.load(getClass().getResource(fxmlName));
-	        Scene scene = new Scene(newRoot, width, height);
-	        
-	        primaryStage.setTitle(newTitle);
-	        primaryStage.setScene(scene);
-
-	        primaryStage.show();
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
-	}
+    
 
 }
