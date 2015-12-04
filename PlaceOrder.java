@@ -30,6 +30,9 @@ public void start(Stage primaryStage) throws Exception{
 		//create database connection
 		dbaseConnection = new DBConnect("jdbc:mysql://localhost:3306/icecream", "root", "csc4500");
 		
+		//Queue Implementation (Jared)
+		Queue orders = new BoundedQueue(1000); 
+		
 		primaryStage.setWidth(1200);
 		primaryStage.setHeight(800);
 		primaryStage.setTitle("Place an Order");
@@ -83,6 +86,8 @@ public void start(Stage primaryStage) throws Exception{
 	        	String thisFlavor = flavor.getText();
 	        	int thisScoops = (int) num_scoops.getValue();
 	        	double total = ((int)num_scoops.getValue() * .5);
+	        	
+	        	q.enqueue(Order); // Submits the order object to the queue. 
 	        	
 	        	try {
 					dbaseConnection.placeOrder(thiscustID, thisType, thisFlavor, thisScoops, total);
