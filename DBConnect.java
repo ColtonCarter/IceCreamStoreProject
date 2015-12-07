@@ -14,7 +14,7 @@ public class DBConnect {
 		
 		public DBConnect(String dbURL, String user, String password) throws SQLException{
 		
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/icecream", "root", "");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/icecream", "root", "csc4500");
 		
 		}
 		
@@ -32,27 +32,19 @@ public class DBConnect {
 			insert.executeUpdate("INSERT INTO customer (firstName, lastName, faveFlavor) " + "VALUES ('" + fName + "' , '" + lName + "', '" + fave  + "')");
 		}
 		
-		public List<Customer> getCustomers() throws SQLException{
-		
-			try(
-				Statement stmt = conn.createStatement();
-				ResultSet rs = stmt.executeQuery("select * from customer");
-		
-			){
-		
-				List<Customer> customerList = new ArrayList<>();
-				while (rs.next()){
-		
-					String fName = rs.getString("firstName");
-					String lName = rs.getString("lastName");
-					String faveFlavor = rs.getString("faveFlavor");
-		
-					Customer customer = new Customer(fName, lName, faveFlavor);
-					customerList.add(customer);
-				}
-				return customerList;
+		public int placeOrder(String custID, String type, String flavor, int scoops, double total) throws SQLException {
+			Statement insert = conn.createStatement();
+			String SQL = "select * from customer WHERE customerID = " + custID + "";
+			ResultSet records = insert.executeQuery(SQL);
+			if (records.next()){
+				return 0;
 			}
+			else {
+			insert.executeUpdate("INSERT INTO orders (customerID, cone_type, cone_flavor, numScoops, status, total) VALUES ('" + custID + "' , '" + type + "' , '" + flavor + "' , '" + scoops + "' , 'Incomplete' , '" + total + "')");
+			}
+			return 1;
 		}
+		
 			
 			public List<Order> getOrders() throws SQLException{
 				
@@ -65,19 +57,27 @@ public class DBConnect {
 					List<Order> orderList = new ArrayList<>();
 					while (rs.next()){
 			
-						int orderID = rs.getInt("order_num");
+						String num = rs.getString("order_num");
 						String type = rs.getString("cone_type");
-						int custID = rs.getInt("customerID");
 						String flavor = rs.getString("cone_flavor");
 						String scoops = rs.getString("numScoops");
 						String status = rs.getString("status");
+						String total = rs.getString("total");
 			
-						Order order = new Order(orderID, type, custID, flavor, scoops, status);
+						Order order = new Order(num, type, flavor, scoops, status, total);
 						orderList.add(order);
 					}
 					return orderList;
 				}
 				
 		}
+
+			public void update(String order_num) throws SQLException {
+				
+				Statement update_order = conn.createStatement();
+				update_order.executeUpdate("UPDATE orders SET status = 'Complete' WHERE order_num = " + order_num + "");
+				
+				
+			}
 }
 			
