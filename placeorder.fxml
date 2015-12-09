@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane fx:id="flavor" prefHeight="552.0" prefWidth="596.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="icecreamshop.PlaceOrder">
+   <children>
+      <Label layoutX="122.0" layoutY="-31.0" prefHeight="145.0" prefWidth="403.0" text="Place an Order">
+         <font>
+            <Font size="48.0" />
+         </font>
+      </Label>
+      <Label layoutX="96.0" layoutY="241.0" text=" Number of Scoops">
+         <font>
+            <Font size="48.0" />
+         </font>
+      </Label>
+      <Label layoutX="156.0" layoutY="324.0">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Button fx:id="submit" layoutX="226.0" layoutY="403.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="110.0" text="Submit" />
+      <TextField fx:id="customerID" layoutX="181.0" layoutY="90.0" prefHeight="35.0" prefWidth="199.0" text="Customer ID" />
+      <TextField layoutX="181.0" layoutY="145.0" prefHeight="35.0" prefWidth="199.0" text="Flavor" />
+      <TextField fx:id="coneType" layoutX="181.0" layoutY="197.0" prefHeight="35.0" prefWidth="199.0" text="Cone Type" />
+      <TextField fx:id="numOfScoops" layoutX="174.0" layoutY="324.0" prefHeight="35.0" prefWidth="199.0" text="Enter a value from 1 to 3" />
+   </children>
+</AnchorPane>
