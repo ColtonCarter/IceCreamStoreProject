@@ -28,9 +28,6 @@ public class SceneContainer
     AnchorPane QueueRoot;
     Scene QueueScene;
     
-    AnchorPane PlaceOrderRoot;
-    Scene PlaceOrderScene;
-    
 
     SceneContainer() 
     {
@@ -42,7 +39,7 @@ public class SceneContainer
 			System.out.println("LogOnNotLoaded");
 			e.printStackTrace();
 		}
-        logOnScene = new Scene(logOnRoot, 640, 480);
+        logOnScene = new Scene(logOnRoot, 750, 600);
         
         try {
 			SelectionRoot = FXMLLoader.load(getClass().getResource("SelectionScreen.fxml"));
@@ -50,15 +47,15 @@ public class SceneContainer
 			System.out.println("SelectionScreenNotLoaded");
 			e.printStackTrace();
 		}
-        SelectionScene = new Scene(SelectionRoot, 640, 480);
+        SelectionScene = new Scene(SelectionRoot, 750, 600);
         
         try {
-			MenuRoot = FXMLLoader.load(getClass().getResource("Menu.fxml"));
+			MenuRoot = FXMLLoader.load(getClass().getResource("placeorder.fxml"));
 		} catch (IOException e) {
 			System.out.println("MenuNotLoaded");
 			e.printStackTrace();
 		}
-        MenuScene = new Scene(MenuRoot, 640, 480);
+        MenuScene = new Scene(MenuRoot, 750, 600);
         
         try {
 			CustomerInfoRoot = FXMLLoader.load(getClass().getResource("CustomerInfo.fxml"));
@@ -66,7 +63,7 @@ public class SceneContainer
 			System.out.println("CustomerInfoNotLoaded");
 			e.printStackTrace();
 		}
-        CustomerInfoScene = new Scene(CustomerInfoRoot, 640, 480);
+        CustomerInfoScene = new Scene(CustomerInfoRoot, 750, 600);
         
         try {
 			QueueRoot = FXMLLoader.load(getClass().getResource("OrderQueue.fxml"));
@@ -74,14 +71,8 @@ public class SceneContainer
 			System.out.println("QueueNotLoaded");
 			e.printStackTrace();
 		}
-        QueueScene = new Scene(QueueRoot, 640, 480);
-        try {
-			PlaceOrderRoot = FXMLLoader.load(getClass().getResource("placeorder.fxml"));
-		} catch (IOException e) {
-			System.out.println("PlaceOrderNotLoaded");
-			e.printStackTrace();
-		}
-        PlaceOrderScene = new Scene(PlaceOrderRoot, 640, 480);
+        QueueScene = new Scene(QueueRoot, 750, 600);
+        
         
     }
     
@@ -104,31 +95,31 @@ public class SceneContainer
     }
     public void ShowSelectionStage()
     {
-    	stage.setTitle("SelectionScreen.fxml");
+    	stage.setTitle("SelectionScreen");
         stage.setScene(SelectionScene);
+        stage.show();
+        
     }
     
     public void ShowCustomerInfo()
     {
-    	stage.setTitle("CustomerInfo.fxml");
+    	stage.setTitle("CustomerInfo");
         stage.setScene(CustomerInfoScene);
+        stage.show();
     }
     
     public void ShowMenu()
     {
-    	stage.setTitle("Menu.fxml");
+    	stage.setTitle("Place Order");
         stage.setScene(MenuScene);
+        stage.show();
     }
     
     public void ShowQueue()
     {
-    	stage.setTitle("OrderQueue.fxml");
+    	stage.setTitle("OrderQueue");
         stage.setScene(QueueScene);
-    }
-    public void ShowPlaceOrder()
-    {
-    	stage.setTitle("placeorder.fxml");
-        stage.setScene(PlaceOrderScene);
+        stage.show();
     }
     
  
