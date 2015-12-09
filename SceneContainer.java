@@ -28,6 +28,9 @@ public class SceneContainer
     AnchorPane QueueRoot;
     Scene QueueScene;
     
+    AnchorPane PlaceOrderRoot;
+    Scene PlaceOrderScene;
+    
 
     SceneContainer() 
     {
@@ -72,7 +75,13 @@ public class SceneContainer
 			e.printStackTrace();
 		}
         QueueScene = new Scene(QueueRoot, 640, 480);
-        
+        try {
+			PlaceOrderRoot = FXMLLoader.load(getClass().getResource("placeorder.fxml"));
+		} catch (IOException e) {
+			System.out.println("PlaceOrderNotLoaded");
+			e.printStackTrace();
+		}
+        PlaceOrderScene = new Scene(PlaceOrderRoot, 640, 480);
         
     }
     
@@ -115,6 +124,11 @@ public class SceneContainer
     {
     	stage.setTitle("OrderQueue.fxml");
         stage.setScene(QueueScene);
+    }
+    public void ShowPlaceOrder()
+    {
+    	stage.setTitle("placeorder.fxml");
+        stage.setScene(PlaceOrderScene);
     }
     
  
