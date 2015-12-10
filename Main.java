@@ -17,25 +17,8 @@ public class Main extends Application
 	@Override
 	public void start(Stage primaryStage) throws IOException
 	{
-		
 		scenes = new SceneContainer();
-		
-		 scenes.ShowSelectionStage();
-		
-		 
-		
-		 
-		LoadScene("Order List", primaryStage, "DisplayOrder.fxml", 640, 480);
-		
-		
-		/*Parent aRoot = FXMLLoader.load(getClass().getResource("SelectionScreen.fxml"));
-        Scene scene = new Scene(aRoot, 640, 480);
-        Stage second = new Stage();
-        second.setTitle("Select Screen");
-        second.setScene(scene);
-        second.show();*/
-        
-       
+		LoadScene("Queue", primaryStage, "OrderQueue.fxml", 640, 480);
 	}
 	
 	public static void main(String[] args) {
