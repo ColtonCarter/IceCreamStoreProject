@@ -129,17 +129,9 @@ public class PlaceOrder  implements Initializable {
 	        		
 	        	double total = (Integer.parseInt(numOfScoops.getText()) * .5 + .75);
 	        	
-	        	try {
 					dbaseConnection.placeOrder(thiscustID, thisType, thisFlavor, thisScoops, total);
-					if (dbaseConnection.placeOrder(thiscustID, thisType, thisFlavor, thisScoops, total) == 0) {
-						displayTotal.setText("** Customer already has an order. Please try again. **");
-						customerID.clear();
-					} else {
-						displayTotal.setText("Your order total is: " + total + "\nOrder placed successfully.");
+					displayTotal.setText("Your order total is: " + total + "\nOrder placed successfully.");
 					}
-				} catch (SQLException e1) {
-					e1.printStackTrace();
-				}
 	        	
 	        	}
 	 

@@ -32,17 +32,9 @@ public void insert(String fName, String lName, String fave) throws SQLException 
 	insert.executeUpdate("INSERT INTO customer (firstName, lastName, faveFlavor) " + "VALUES ('" + fName + "' , '" + lName + "', '" + fave  + "')");
 }
 
-public int placeOrder(String custID, String type, String flavor, int scoops, double total) throws SQLException {
+public void placeOrder(String custID, String type, String flavor, int scoops, double total) throws SQLException {
 	Statement insert = conn.createStatement();
-	String SQL = "select * from customer WHERE customerID = " + custID + "";
-	ResultSet records = insert.executeQuery(SQL);
-	if (records.next()){
-		return 0;
-	}
-	else {
 	insert.executeUpdate("INSERT INTO orders (customerID, cone_type, cone_flavor, numScoops, status, total) VALUES ('" + custID + "' , '" + type + "' , '" + flavor + "' , '" + scoops + "' , 'Incomplete' , '" + total + "')");
-	}
-	return 1;
 }
 
 	
