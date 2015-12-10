@@ -123,6 +123,7 @@ public class DisplayCustomers implements Initializable {
 		        @Override public void handle(ActionEvent e) {
 		        	
 		        	Main.scenes.setCustomerID(id_input.getText());
+		        	id_input.clear();
 		        	Main.scenes.ShowMenu();
 		        	//store variable in temp class here
 		        	//switch to place an order scene

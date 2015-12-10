@@ -129,15 +129,24 @@ public class PlaceOrder  implements Initializable {
 	        		
 	        	double total = (Integer.parseInt(numOfScoops.getText()) * .5 + .75);
 	        	
-					dbaseConnection.placeOrder(thiscustID, thisType, thisFlavor, thisScoops, total);
+					try {
+						dbaseConnection.placeOrder(thiscustID, thisType, thisFlavor, thisScoops, total);
+					} catch (SQLException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
 					displayTotal.setText("Your order total is: " + total + "\nOrder placed successfully.");
 					}
+	        	customerID.clear();
+	        	flavor.clear();
+	        	coneType.clear();
+	        	numOfScoops.clear();
+	        	displayTotal.setText("");
+	        	Main.scenes.ShowSelectionStage();
 	        	
 	        	}
 	 
-	        	}
-	        
-	});
+	        	});
 	    
 	 //   Button btnClear = new Button("Clear");
 	    
@@ -149,7 +158,7 @@ public class PlaceOrder  implements Initializable {
 	        	coneType.clear();
 	        	numOfScoops.clear();
 	        	displayTotal.setText("");
-	        	Main.scenes.ShowSelectionStage();
+	        	
 	        }
 	    });
 	    
