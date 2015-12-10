@@ -25,7 +25,7 @@ public class Main extends Application
 		 
 		
 		 
-		LoadScene("Order List", primaryStage, "DisplayOrder.fxml", 640, 480);
+		LoadScene("Order List", primaryStage, "DisplayOrder.fxml", 800, 600);
 		
 		
 		/*Parent aRoot = FXMLLoader.load(getClass().getResource("SelectionScreen.fxml"));

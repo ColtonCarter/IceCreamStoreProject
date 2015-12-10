@@ -45,6 +45,9 @@ public class PlaceOrder  implements Initializable {
 	
 	@FXML 
 	public Text displayTotal;
+	
+	@FXML 
+	public Button btn_Import;
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -97,6 +100,9 @@ public class PlaceOrder  implements Initializable {
 	    //on submit, the values from the form will be assigned variables
 	    //the variables will be tested for validity before being passed to the placeOrder method
 	    //tests for valid number of scoops, customer ID, etc*/
+		
+	
+		
 	    submit.setOnAction(new EventHandler<ActionEvent>() {	     
 	        @Override public void handle(ActionEvent e) {
 	        	String thiscustID = customerID.getText();
@@ -151,6 +157,18 @@ public class PlaceOrder  implements Initializable {
 	        	coneType.clear();
 	        	numOfScoops.clear();
 	        	displayTotal.setText("");
+	        	Main.scenes.ShowSelectionStage();
+	        }
+	    });
+	    
+	    btn_Import.setOnAction(new EventHandler<ActionEvent>() { 
+	        @Override public void handle(ActionEvent e) {
+	        	customerID.clear();
+	        	flavor.clear();
+	        	coneType.clear();
+	        	numOfScoops.clear();
+	        	displayTotal.setText("");
+	        	customerID.setText(Main.scenes.getCustomerID());
 	        }
 	    });
 	    	    
@@ -172,6 +190,8 @@ public class PlaceOrder  implements Initializable {
 	    primaryStage.show();*/
 		
 }
+	
+
 
 public void closeDbase() throws Exception{
 

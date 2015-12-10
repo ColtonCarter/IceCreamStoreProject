@@ -51,7 +51,7 @@ public class DisplayCustomers implements Initializable {
 		
 		//create database connection
 		try {
-			dbaseConnection = new DBConnect("jdbc:mysql://localhost:3306/icecream", "root", "csc4500");
+			dbaseConnection = new DBConnect("jdbc:mysql://localhost:3306/icecream", "root", "");
 		} catch (SQLException e2) {
 			// TODO Auto-generated catch block
 			e2.printStackTrace();
@@ -122,6 +122,8 @@ public class DisplayCustomers implements Initializable {
 	  		order.setOnAction(new EventHandler<ActionEvent>() {	     
 		        @Override public void handle(ActionEvent e) {
 		        	
+		        	Main.scenes.setCustomerID(id_input.getText());
+		        	Main.scenes.ShowMenu();
 		        	//store variable in temp class here
 		        	//switch to place an order scene
 		        	

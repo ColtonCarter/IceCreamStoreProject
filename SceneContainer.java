@@ -28,9 +28,12 @@ public class SceneContainer
     AnchorPane QueueRoot;
     Scene QueueScene;
     
+    String customerID;
 
     SceneContainer() 
     {
+    	customerID = "";
+    	
     	stage = new Stage();
     	
     	try {
@@ -83,6 +86,16 @@ public class SceneContainer
     	stage.setScene(scene);
     	stage.setTitle(title);
     	stage.show();
+    }
+    
+    public void setCustomerID(String cID)
+    {
+    	this.customerID = cID;
+    }
+    
+    public String getCustomerID()
+    {
+    	return this.customerID;
     }
     
     public void ShowLogOnStage()

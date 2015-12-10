@@ -62,13 +62,12 @@ public class DisplayOrders implements Initializable {
 	@FXML 
 	public Label update;
 	
-	
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
 		
-	System.out.println("Initializing display orders");
+
 		
 		//create database connection
 		try {

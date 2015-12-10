@@ -39,8 +39,10 @@ implements Initializable {
             public void handle(ActionEvent event) 
             {
             	
+            	System.out.println("show menu");
+            	Main.scenes.ShowMenu();     
+            	System.out.println("show menu comp");
             	
-            	Main.scenes.ShowMenu();          
             }
         });
     	
@@ -50,7 +52,7 @@ implements Initializable {
             @Override
             public void handle(ActionEvent event) 
             {
-            	
+            	System.out.println("show cust info");
             	Main.scenes.ShowCustomerInfo();
             	
             	          

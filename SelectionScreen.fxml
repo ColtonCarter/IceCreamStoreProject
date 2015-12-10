@@ -6,20 +6,19 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="icecreamshop.ControllerSelection">
+<AnchorPane prefHeight="600.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="icecreamshop.ControllerSelection">
    <children>
-      <Button fx:id="btn_Info" layoutX="138.0" layoutY="292.0" mnemonicParsing="false" text="Customer Info">
+      <Button fx:id="btn_Info" layoutX="192.0" layoutY="382.0" mnemonicParsing="false" text="Customer Info">
          <font>
             <Font size="48.0" />
          </font>
       </Button>
-      <Button fx:id="btn_Menu" layoutX="227.0" layoutY="155.0" mnemonicParsing="false" text="Menu">
+      <Button fx:id="btn_Menu" layoutX="281.0" layoutY="245.0" mnemonicParsing="false" text="Menu">
          <font>
             <Font size="48.0" />
          </font>
       </Button>
-      <Label layoutX="150.0" layoutY="26.0" prefHeight="113.0" prefWidth="340.0" text="Choose where you would like to go" textAlignment="CENTER" wrapText="true">
+      <Label layoutX="204.0" layoutY="116.0" prefHeight="113.0" prefWidth="340.0" text="Choose where you would like to go" textAlignment="CENTER" wrapText="true">
          <font>
             <Font size="36.0" />
          </font>
