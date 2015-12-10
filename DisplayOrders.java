@@ -71,7 +71,7 @@ public class DisplayOrders implements Initializable {
 		
 		//create database connection
 		try {
-			dbaseConnection = new DBConnect("jdbc:mysql://localhost:3306/icecream", "root", "");
+			dbaseConnection = new DBConnect("jdbc:mysql://localhost:3306/icecream", "root", "csc4500");
 		} catch (SQLException e2) {
 			// TODO Auto-generated catch block
 			e2.printStackTrace();

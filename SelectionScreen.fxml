@@ -13,14 +13,14 @@
             <Font size="48.0" />
          </font>
       </Button>
-      <Button fx:id="btn_Menu" layoutX="281.0" layoutY="245.0" mnemonicParsing="false" text="Menu">
+      <Button fx:id="btn_Menu" layoutX="281.0" layoutY="249.0" mnemonicParsing="false" text="Menu">
          <font>
             <Font size="48.0" />
          </font>
       </Button>
-      <Label layoutX="204.0" layoutY="116.0" prefHeight="113.0" prefWidth="340.0" text="Choose where you would like to go" textAlignment="CENTER" wrapText="true">
+      <Label layoutX="146.0" layoutY="28.0" prefHeight="184.0" prefWidth="457.0" text="Ice Cream Shoppe" textAlignment="CENTER" textFill="#0286cc" wrapText="true">
          <font>
-            <Font size="36.0" />
+            <Font name="Bookman Old Style Bold Italic" size="64.0" />
          </font>
       </Label>
    </children>

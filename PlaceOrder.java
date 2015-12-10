@@ -54,55 +54,12 @@ public class PlaceOrder  implements Initializable {
 		
 		//create database connection
 		try {
-			dbaseConnection = new DBConnect("jdbc:mysql://localhost:3306/icecream", "root", "");
+			dbaseConnection = new DBConnect("jdbc:mysql://localhost:3306/icecream", "root", "csc4500");
 		} catch (SQLException e2) {
-			// TODO Auto-generated catch block
 			e2.printStackTrace();
 		}
 		
-		/*primaryStage.setWidth(1200);
-		primaryStage.setHeight(800);
-		primaryStage.setTitle("Place an Order");
-		BorderPane root = new BorderPane();
-		Scene scene = new Scene(root, 600, 350);
-		primaryStage.setScene(scene);
-	    
-		//create vbox to contain form
-	    VBox formHolder = new VBox();
-	    formHolder.setAlignment(Pos.CENTER);
-	    
-	    Text title = new Text("Place an Order");
-	    
-	    //text fields to get user input
-	    TextField custID = new TextField();
-	    custID.setPromptText("Customer ID");
-	    custID.setMaxWidth(400);
-	    TextField type = new TextField();
-	    type.setPromptText("Cone Type:");
-	    type.setMaxWidth(400);
-	    TextField flavor = new TextField();
-	    flavor.setPromptText("Flavor:");
-	    flavor.setMaxWidth(400);
-	    Text scoops = new Text("Number of Scoops:");
-	    TextField num_scoops = new TextField();
-	    num_scoops.setPromptText("Enter a value between 1 and 3");
-	    num_scoops.setMaxWidth(400);
-	    
-        //area where error/success messages will be displayed
-        Text displayTotal = new Text("");
-        
-        //hbox to contain buttons
-	    HBox btns = new HBox();
-	    btns.setAlignment(Pos.CENTER);
-	    
-	    Button btnSubmit = new Button("Submit");
-	    
-	    //on submit, the values from the form will be assigned variables
-	    //the variables will be tested for validity before being passed to the placeOrder method
-	    //tests for valid number of scoops, customer ID, etc*/
-		
-	
-		
+		//grabs field input and assigns them variables
 	    submit.setOnAction(new EventHandler<ActionEvent>() {	     
 	        @Override public void handle(ActionEvent e) {
 	        	String thiscustID = customerID.getText();
@@ -110,6 +67,7 @@ public class PlaceOrder  implements Initializable {
 	        	String thisFlavor = flavor.getText();
 	        	int thisScoops = Integer.parseInt(numOfScoops.getText());
 	        	
+	        	//makes sure they dont order more than 3 scoops
 	        	if (thisScoops != 1 || thisScoops != 2 || thisScoops != 3){
 	        		displayTotal.setFill(Color.RED);
 	        		displayTotal.setText("** Number of scoops must be between one and three **");
@@ -118,7 +76,7 @@ public class PlaceOrder  implements Initializable {
 	        	try {
 
 	        		int inputNumber = Integer.parseInt(customerID.getText());
-
+	        		//makes sure customer id is an integer
 	        		} catch (NumberFormatException exc) {
 	        			displayTotal.setFill(Color.RED);
 		        		displayTotal.setText("** Customer ID must be a number, please try again **");
@@ -130,12 +88,19 @@ public class PlaceOrder  implements Initializable {
 	        	double total = (Integer.parseInt(numOfScoops.getText()) * .5 + .75);
 	        	
 					try {
+						//counts to see if the customer has less than ten cones
+						//if so, it places the order. if not, it gives this error message
+						int numOrders = dbaseConnection.countOrders(thiscustID);
+						if (numOrders < 10){
 						dbaseConnection.placeOrder(thiscustID, thisType, thisFlavor, thisScoops, total);
+						displayTotal.setText("Your order total is: " + total + "\nOrder placed successfully.");
+						} else {
+							displayTotal.setText("Sorry!\nThis customer has reached the maximum of 10 cone orders.");
+						}
 					} catch (SQLException e1) {
-						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}
-					displayTotal.setText("Your order total is: " + total + "\nOrder placed successfully.");
+					
 					}
 	        	customerID.clear();
 	        	flavor.clear();
@@ -147,8 +112,6 @@ public class PlaceOrder  implements Initializable {
 	        	}
 	 
 	        	});
-	    
-	 //   Button btnClear = new Button("Clear");
 	    
 	    //on action, this button clears all of the fields
 	    clear.setOnAction(new EventHandler<ActionEvent>() { 
@@ -169,26 +132,10 @@ public class PlaceOrder  implements Initializable {
 	        	coneType.clear();
 	        	numOfScoops.clear();
 	        	displayTotal.setText("");
+	        	//calls method to populate ID stored in temp class
 	        	customerID.setText(Main.scenes.getCustomerID());
 	        }
 	    });
-	    	    
-	    //set margins for better spacing
-	/* VBox.setMargin(title, new Insets(20,20,20,20));
-	    VBox.setMargin(custID, new Insets(20,20,20,20));
-	    VBox.setMargin(flavor, new Insets(20,20,20,20));
-	    VBox.setMargin(type, new Insets(20,20,20,20));
-	    VBox.setMargin(num_scoops, new Insets(20,20,20,20));
-	    VBox.setMargin(displayTotal, new Insets(20,20,20,20));
-	    HBox.setMargin(btnSubmit, new Insets(20,20,20,20));
-	    HBox.setMargin(btnClear, new Insets(20,20,20,20));
-	    
-	    //add various elements to the containers
-	    btns.getChildren().addAll(btnSubmit, btnClear);
-	    formHolder.getChildren().addAll(title, custID, flavor, type, scoops, num_scoops, displayTotal, btns);
-	    
-	  	root.setCenter(formHolder);
-	    primaryStage.show();*/
 		
 }
 	

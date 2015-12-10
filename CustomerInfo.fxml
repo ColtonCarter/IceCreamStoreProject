@@ -8,7 +8,10 @@
 
 <AnchorPane prefHeight="605.0" prefWidth="723.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="icecreamshop.DisplayCustomers">
    <children>
-      <Button fx:id="order" layoutX="447.0" layoutY="500.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="199.0" text="---&gt; Order" />
+      <Button fx:id="order" layoutX="447.0" layoutY="500.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="199.0" text="---&gt; Order">
+         <font>
+            <Font name="Bookman Old Style" size="27.0" />
+         </font></Button>
       <TableView fx:id="customer_list" layoutX="28.0" layoutY="88.0" prefHeight="382.0" prefWidth="670.0">
         <columns>
           <TableColumn fx:id="col_fname" prefWidth="174.0" text="First Name" />
@@ -17,11 +20,14 @@
             <TableColumn fx:id="col_id" minWidth="0.0" prefWidth="94.0" text="ID" />
         </columns>
       </TableView>
-      <Label fx:id="title" layoutX="278.0" layoutY="21.0" text="Customers">
+      <Label fx:id="title" layoutX="228.0" layoutY="20.0" text="Customers" textFill="#0286cc">
          <font>
-            <Font size="36.0" />
+            <Font name="Bookman Old Style Bold" size="48.0" />
          </font>
       </Label>
-      <TextField fx:id="id_input" layoutX="85.0" layoutY="500.0" prefHeight="57.0" prefWidth="193.0" promptText="Enter ID #:" />
+      <TextField fx:id="id_input" layoutX="85.0" layoutY="500.0" prefHeight="57.0" prefWidth="193.0" promptText="Enter ID #:">
+         <font>
+            <Font name="Bookman Old Style" size="27.0" />
+         </font></TextField>
    </children>
 </AnchorPane>

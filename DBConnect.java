@@ -14,7 +14,7 @@ private static Connection conn;
 
 public DBConnect(String dbURL, String user, String password) throws SQLException{
 
-	conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/icecream", "root", "");
+	conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/icecream", "root", "csc4500");
 
 }
 
@@ -27,11 +27,13 @@ public void shutdown() throws SQLException{
 	
 }
 
+//inserts new customer into database
 public void insert(String fName, String lName, String fave) throws SQLException {
 	Statement insert = conn.createStatement();
 	insert.executeUpdate("INSERT INTO customer (firstName, lastName, faveFlavor) " + "VALUES ('" + fName + "' , '" + lName + "', '" + fave  + "')");
 }
 
+//inserts new order into database
 public void placeOrder(String custID, String type, String flavor, int scoops, double total) throws SQLException {
 	Statement insert = conn.createStatement();
 	insert.executeUpdate("INSERT INTO orders (customerID, cone_type, cone_flavor, numScoops, status, total) VALUES ('" + custID + "' , '" + type + "' , '" + flavor + "' , '" + scoops + "' , 'Incomplete' , '" + total + "')");
@@ -45,7 +47,7 @@ public void placeOrder(String custID, String type, String flavor, int scoops, do
 			ResultSet rs = stmt.executeQuery("select * from orders");
 	
 		){
-	
+			//stores orders in arraylist
 			List<Order> orderList = new ArrayList<>();
 			while (rs.next()){
 	
@@ -72,7 +74,7 @@ public void placeOrder(String custID, String type, String flavor, int scoops, do
 			ResultSet rs = stmt.executeQuery("select * from customer");
 	
 		){
-	
+			//stores customers in array list
 			List<Customer> customerList = new ArrayList<>();
 			while (rs.next()){
 	
@@ -96,5 +98,20 @@ public void placeOrder(String custID, String type, String flavor, int scoops, do
 		
 		
 	}
-}
+	
+	//counts number of orders by customer id so the program can tell if they've ordered 10 (the limit), or more, or less
+	public int countOrders(String customer) throws SQLException {
+		String cid = customer;
+		Statement count = conn.createStatement();
+		ResultSet rs = count.executeQuery("SELECT * FROM orders WHERE customerID = " + cid +  "");
+		int i = 1;
+		while (rs.next()){
+			i++;
+		}
+		return i;
+	}
+		
+		
+	}
+
 			
