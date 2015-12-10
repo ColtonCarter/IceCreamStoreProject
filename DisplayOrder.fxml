@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="578.0" prefWidth="778.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="icecreamshop.DisplayOrders">
+   <children>
+      <Label layoutX="336.0" layoutY="31.0" text="Order List">
+         <font>
+            <Font size="36.0" />
+         </font></Label>
+      <TableView fx:id="tblView_orders" layoutX="21.0" layoutY="140.0" prefHeight="200.0" prefWidth="734.0">
+        <columns>
+          <TableColumn fx:id="col_orderNum" prefWidth="119.0" text="Order #" />
+          <TableColumn fx:id="col_type" prefWidth="127.0" text="Type" />
+            <TableColumn fx:id="col_flavor" minWidth="9.0" prefWidth="106.0" text="Flavor" />
+            <TableColumn fx:id="col_numScoops" prefWidth="172.0" text="# of Scoops" />
+            <TableColumn fx:id="col_status" prefWidth="122.0" text="Status" />
+            <TableColumn fx:id="col_total" prefWidth="87.0" text="Total" />
+        </columns>
+      </TableView>
+      <Label layoutX="272.0" layoutY="359.0" text="Complete an Order" />
+      <TextField fx:id="txt_OrderNum" layoutX="219.0" layoutY="406.0" promptText="Order #" />
+      <Button fx:id="btn_Update" layoutX="219.0" layoutY="482.0" mnemonicParsing="false" text="Update" />
+      <Button fx:id="btn_Refresh" layoutX="430.0" layoutY="482.0" mnemonicParsing="false" text="Refresh" />
+   </children>
+</AnchorPane>

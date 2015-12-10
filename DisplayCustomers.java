@@ -4,75 +4,54 @@ package icecreamshop;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
-
-import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
-import javafx.scene.text.Text;
-import javafx.stage.Stage;
 
-public class DisplayOrders implements Initializable {
+public class DisplayCustomers implements Initializable {
 	
 	private DBConnect dbaseConnection;
 	
 	@FXML
-	public Button btn_Update; 
+	public Button order; 
 	
 	@FXML
-	public Button btn_Refresh; 
-	
-	@FXML
-	public TableView<Order> tblView_orders; 
+	public TableView<Customer> customer_list; 
 	
 	@FXML 
-	public TableColumn<Order, String> col_orderNum;
+	public TableColumn<Customer, String> col_fname;
 	
 	@FXML 
-	public TableColumn<Order, String> col_type;
+	public TableColumn<Customer, String> col_lname;
 	
 	@FXML 
-	public TableColumn<Order, String> col_flavor;
+	public TableColumn<Customer, String> col_id;
 	
 	@FXML 
-	public TableColumn<Order, String> col_numScoops;
+	public TableColumn<Customer, String> col_flavor;
 	
 	@FXML 
-	public TableColumn<Order, String> col_status;
+	public TextField id_input;
 	
 	@FXML 
-	public TableColumn<Order, String> col_total;
-	
-	@FXML 
-	public TextField txt_OrderNum;
-	
-	@FXML 
-	public Label update;
-	
-	
+	public Label title;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
 		
-	System.out.println("Initializing display orders");
+	System.out.println("Initializing display customers");
 		
 		//create database connection
 		try {
-			dbaseConnection = new DBConnect("jdbc:mysql://localhost:3306/icecream", "root", "");
+			dbaseConnection = new DBConnect("jdbc:mysql://localhost:3306/icecream", "root", "csc4500");
 		} catch (SQLException e2) {
 			// TODO Auto-generated catch block
 			e2.printStackTrace();
@@ -99,33 +78,25 @@ public class DisplayOrders implements Initializable {
 	  		
 	  		/*TableColumn<Order, String> cone_num_col = new TableColumn<>("Order Number");
 	  		cone_num_col.setMinWidth(240);*/
-	  		col_orderNum.setCellValueFactory(new PropertyValueFactory<>("num"));
+	  		col_fname.setCellValueFactory(new PropertyValueFactory<>("fname"));
 	  		
 	  		/*TableColumn<Order, String> cone_type_col = new TableColumn<>("Cone Type");
 	  		cone_type_col.setMinWidth(240);*/
-	  		col_type.setCellValueFactory(new PropertyValueFactory<>("type"));
+	  		col_lname.setCellValueFactory(new PropertyValueFactory<>("lname"));
 	  		
 	  	/*	TableColumn<Order, String> flavor_col = new TableColumn<>("Flavor");
 	  		flavor_col.setMinWidth(240);*/
-	  		col_flavor.setCellValueFactory(new PropertyValueFactory<>("flavor"));
+	  		col_id.setCellValueFactory(new PropertyValueFactory<>("custID"));
 	  		
 	  		/*TableColumn<Order, String> scoops_col = new TableColumn<>("# of Scoops");
 	  		scoops_col.setMinWidth(240);*/
-	  		col_numScoops.setCellValueFactory(new PropertyValueFactory<>("scoops"));
+	  		col_flavor.setCellValueFactory(new PropertyValueFactory<>("flavor"));
 	  		
-	  		/*TableColumn<Order, String> status_col = new TableColumn<>("Status");
-	  		status_col.setMinWidth(240);*/
-	  		col_status.setCellValueFactory(new PropertyValueFactory<>("status"));
-	  		
-	  		/*TableColumn<Order, String> total_col = new TableColumn<>("Total");
-	  		total_col.setMinWidth(240);*/
-	  		col_total.setCellValueFactory(new PropertyValueFactory<>("total"));
-	  	
 	  		//add columns to table vview
 	  		//orderTable.getColumns().addAll(cone_num_col,cone_type_col,flavor_col,scoops_col,status_col,total_col);
 	  		//populate information from database
 	  		try {
-				tblView_orders.getItems().addAll(dbaseConnection.getOrders());
+				customer_list.getItems().addAll(dbaseConnection.getCustomers());
 			} catch (SQLException e2) {
 				// TODO Auto-generated catch block
 				e2.printStackTrace();
@@ -148,34 +119,16 @@ public class DisplayOrders implements Initializable {
 	  		buttons.getChildren().addAll(update,refresh);*/
 	  		
 	  		//action event that calls the 'update' method in DBConnect
-	  		btn_Update.setOnAction(new EventHandler<ActionEvent>() {	     
+	  		order.setOnAction(new EventHandler<ActionEvent>() {	     
 		        @Override public void handle(ActionEvent e) {
-		        	String field_input = txt_OrderNum.getText();
-		        	System.out.println("hello");
-		        	try {
-						dbaseConnection.update(field_input);
-					} catch (SQLException e1) {
-						e1.printStackTrace();
-					}
+		        	
+		        	//store variable in temp class here
+		        	//switch to place an order scene
 		        	
 					
 		        }
 		    });
 	  		
-	  		//clears the items in the table and reloads them, to demonstrate the order has been updated
-	  		btn_Refresh.setOnAction(new EventHandler<ActionEvent>() {	     
-		        @Override public void handle(ActionEvent e) {
-		        	tblView_orders.getItems().clear();
-		        	 txt_OrderNum.clear();
-		 	  		try {
-		 	  			tblView_orders.getItems().addAll(dbaseConnection.getOrders());
-					} catch (SQLException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					}
-					
-		        }
-		    });
 	  		
 	  		//add all elements to vbox
 	  	/*	formHolder.getChildren().addAll(title, orderTable, update_title, ordernumber, buttons);

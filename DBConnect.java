@@ -71,6 +71,31 @@ public class DBConnect {
 				}
 				
 		}
+			
+			
+			public List<Customer> getCustomers() throws SQLException{
+				
+				try(
+					Statement stmt = conn.createStatement();
+					ResultSet rs = stmt.executeQuery("select * from customer");
+			
+				){
+			
+					List<Customer> customerList = new ArrayList<>();
+					while (rs.next()){
+			
+						String fname = rs.getString("firstName");
+						String lname = rs.getString("lastName");
+						String custID = rs.getString("customerID");
+						String flavor = rs.getString("faveFlavor");
+			
+						Customer order = new Customer(fname, lname, custID, flavor);
+						customerList.add(order);
+					}
+					return customerList;
+				}
+				
+		}
 
 			public void update(String order_num) throws SQLException {
 				
